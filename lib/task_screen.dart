@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/widgets/task_view.dart';
+import 'package:todoapp/widgets/task_buttom_sheet.dart';
 
+// ignore: use_key_in_widget_constructors
 class TaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,12 @@ class TaskScreen extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(bottom: 20.0),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) => TaskButtomSheet(),
+            );
+          },
           backgroundColor: Colors.lightBlueAccent,
           shape: CircleBorder(side: BorderSide.none, eccentricity: 1.0),
           child: Icon(Icons.add, color: Colors.white),
